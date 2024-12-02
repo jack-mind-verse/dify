@@ -20,18 +20,7 @@ const ExploreNav = ({
   const activated = selectedSegment === 'explore'
 
   return (
-    <Link href="/explore/apps" className={classNames(
-      className, 'group',
-      activated && 'bg-components-main-nav-nav-button-bg-active shadow-md',
-      activated ? 'text-components-main-nav-nav-button-text-active' : 'text-components-main-nav-nav-button-text hover:bg-components-main-nav-nav-button-bg-hover',
-    )}>
-      {
-        activated
-          ? <RiPlanetFill className='mr-2 w-4 h-4' />
-          : <RiPlanetLine className='mr-2 w-4 h-4' />
-      }
-      {t('common.menus.explore')}
-    </Link>
+    <a href="#">_</a>
   )
 }
 
