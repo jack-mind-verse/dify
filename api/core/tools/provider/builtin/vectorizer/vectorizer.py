@@ -13,7 +13,7 @@ class VectorizerProvider(BuiltinToolProviderController):
             "transfer_method": FileTransferMethod.TOOL_FILE,
             "type": FileType.IMAGE,
             "id": "test_id",
-            "url": "https://cloud.dify.ai/logo/logo-site.png",
+            "url": "",
         }
         test_img = file_factory.build_from_mapping(
             mapping=mapping,
