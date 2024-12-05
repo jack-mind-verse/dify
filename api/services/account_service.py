@@ -677,7 +677,7 @@ class TenantService:
         perms = {
             "add": [TenantAccountRole.OWNER, TenantAccountRole.ADMIN],
             "remove": [TenantAccountRole.OWNER],
-            "update": [TenantAccountRole.OWNER],
+            "update": [TenantAccountRole.OWNER, TenantAccountRole.ADMIN],
         }
         if action not in {"add", "remove", "update"}:
             raise InvalidActionError("Invalid action.")
