@@ -5,7 +5,7 @@ import { Check, ChevronDown } from '@heroicons/react/20/solid'
 import { useProviderContext } from '@/context/provider-context'
 import { notify } from '@/app/components/base/notify'
 
-type Role = 'owner' | 'admin' | 'editor' | 'normal' | 'dataset_operator'
+type Role = 'owner' | 'admin' | 'normal'
 
 interface RoleManagerProps {
   currentRole: Role
@@ -16,15 +16,8 @@ interface RoleManagerProps {
 const RoleManager = ({ currentRole, memberId, onRoleChange }: RoleManagerProps) => {
   const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
-  const { datasetOperatorEnabled } = useProviderContext()
 
-  const roles: Role[] = [
-    'owner',
-    'admin',
-    'editor',
-    'normal',
-    ...(datasetOperatorEnabled ? ['dataset_operator'] : []),
-  ] as Role[]
+  const roles: Role[] = ['owner', 'admin', 'normal']
 
   const handleRoleChange = async (newRole: Role) => {
     if (newRole === currentRole) return
