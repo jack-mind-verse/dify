@@ -56,6 +56,17 @@ const InstallForm = () => {
     
     setIsSubmitting(true)
     try {
+      const initStatus = await fetchInitValidateStatus()
+      if (initStatus.status === 'not_started') {
+        Toast.notify({
+          type: 'error',
+          message: t('login.error.initRequired'),
+          duration: 5000,
+        })
+        window.location.href = '/init'
+        return
+      }
+
       const response = await setup({
         body: {
           ...data,
@@ -63,11 +74,33 @@ const InstallForm = () => {
       })
       
       if (response.result === 'success') {
-        Toast.notify({
-          type: 'success',
-          message: t('common.actionMsg.modifiedSuccessfully'),
-        })
-        router.push('/signin')
+        try {
+          const loginResponse = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: data.email,
+              password: data.password,
+            }),
+          })
+
+          if (loginResponse.ok) {
+            Toast.notify({
+              type: 'success',
+              message: t('common.actionMsg.modifiedSuccessfully'),
+              duration: 3000,
+            })
+            setTimeout(() => {
+              router.push('/signin')
+            }, 2000)
+          } else {
+            throw new Error('Account creation failed')
+          }
+        } catch (loginError) {
+          throw new Error(t('login.error.accountCreationFailed'))
+        }
       } else {
         throw new Error(response.message || t('common.error.unknown'))
       }
@@ -78,6 +111,7 @@ const InstallForm = () => {
         message: error.message || t('common.error.unknown'),
         duration: 5000,
       })
+    } finally {
       setIsSubmitting(false)
     }
   }

@@ -191,19 +191,25 @@ class AccountService:
     def create_account(
         email: str,
         name: str,
-        interface_language: str,
+        interface_language: str = "en-US",
         password: Optional[str] = None,
         interface_theme: str = "light",
         is_setup: Optional[bool] = False,
     ) -> Account:
         """create account"""
-        if not FeatureService.get_system_features().is_allow_register and not is_setup:
+        if not is_setup and not FeatureService.get_system_features().is_allow_register:
             from controllers.console.error import AccountNotFound
-
             raise AccountNotFound()
+
+        # Check if account already exists
+        existing_account = Account.query.filter_by(email=email).first()
+        if existing_account:
+            raise AccountRegisterError("Account already exists")
+
         account = Account()
         account.email = email
         account.name = name
+        account.status = AccountStatus.ACTIVE.value
 
         if password:
             # generate password salt
@@ -219,12 +225,16 @@ class AccountService:
 
         account.interface_language = interface_language
         account.interface_theme = interface_theme
-
-        # Set timezone based on language
         account.timezone = language_timezone_mapping.get(interface_language, "UTC")
+        account.initialized_at = datetime.now(UTC).replace(tzinfo=None)
 
-        db.session.add(account)
-        db.session.commit()
+        try:
+            db.session.add(account)
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            raise AccountRegisterError(f"Failed to create account: {str(e)}")
+
         return account
 
     @staticmethod

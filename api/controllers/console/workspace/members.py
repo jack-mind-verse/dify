@@ -32,7 +32,7 @@ def update_member_role(member_id):
             raise NotFound('Workspace not found')
 
         # Check if operator has permission
-        if not current_user.is_admin_or_owner:
+        if not current_user.is_owner:
             raise Forbidden('No permission to update member role')
 
         # Cannot change own role
