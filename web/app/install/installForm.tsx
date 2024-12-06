@@ -37,6 +37,7 @@ const InstallForm = () => {
   const router = useRouter()
   const [showPassword, setShowPassword] = React.useState(false)
   const [loading, setLoading] = React.useState(true)
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
   const {
     register,
     handleSubmit,
@@ -51,15 +52,33 @@ const InstallForm = () => {
   })
 
   const onSubmit: SubmitHandler<AccountFormValues> = async (data) => {
+    if (isSubmitting) return
+    
+    setIsSubmitting(true)
     try {
-      await setup({
+      const response = await setup({
         body: {
           ...data,
         },
       })
-      router.push('/signin')
+      
+      if (response.result === 'success') {
+        Toast.notify({
+          type: 'success',
+          message: t('common.actionMsg.modifiedSuccessfully'),
+        })
+        router.push('/signin')
+      } else {
+        throw new Error(response.message || t('common.error.unknown'))
+      }
     } catch (error: any) {
-      Toast.notify({ type: 'error', message: error.message || t('common.error.unknown') })
+      console.error('Setup error:', error)
+      Toast.notify({
+        type: 'error',
+        message: error.message || t('common.error.unknown'),
+        duration: 5000,
+      })
+      setIsSubmitting(false)
     }
   }
 
@@ -78,12 +97,17 @@ const InstallForm = () => {
         setLoading(false)
       } catch (error) {
         console.error('Status check failed:', error)
+        Toast.notify({
+          type: 'error',
+          message: t('common.error.unknown'),
+          duration: 5000,
+        })
         setLoading(false)
       }
     }
 
     checkStatus()
-  }, [])
+  }, [t])
 
   return (
     loading
@@ -110,7 +134,6 @@ const InstallForm = () => {
                   />
                   {errors.email && <span className='text-red-400 text-sm'>{t(`${errors.email?.message}`)}</span>}
                 </div>
-
               </div>
 
               <div className='mb-5'>
@@ -138,7 +161,6 @@ const InstallForm = () => {
                     placeholder={t('login.passwordPlaceholder') || ''}
                     className={'appearance-none block w-full rounded-lg pl-[14px] px-3 py-2 border border-gray-200 hover:border-gray-300 hover:shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 placeholder-gray-400 caret-primary-600 sm:text-sm pr-10'}
                   />
-
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                     <button
                       type="button"
@@ -149,15 +171,20 @@ const InstallForm = () => {
                     </button>
                   </div>
                 </div>
-
                 <div className={classNames('mt-1 text-xs text-gray-500', {
                   'text-red-400 !text-sm': errors.password,
                 })}>{t('login.error.passwordInvalid')}</div>
               </div>
 
               <div>
-                <Button variant='primary' className='w-full' onClick={handleSetting}>
-                  {t('login.installBtn')}
+                <Button 
+                  type="submit"
+                  variant='primary' 
+                  className='w-full' 
+                  onClick={handleSetting}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t('common.loading') : t('login.installBtn')}
                 </Button>
               </div>
             </form>
