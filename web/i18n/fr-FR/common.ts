@@ -173,7 +173,7 @@ const translation = {
     deleteConfirmTip: 'Pour confirmer, veuillez envoyer ce qui suit depuis votre adresse e-mail enregistrée à ',
     myAccount: 'Mon compte',
     account: 'Compte',
-    studio: 'Dify Studio',
+    studio: 'Mindverse Studio',
   },
   members: {
     team: 'Équipe',

@@ -175,7 +175,7 @@ const translation = {
     confirmPassword: 'Conferma password',
     notEqual: 'Le due password sono diverse.',
     langGeniusAccount: 'Account Dify',
-    langGeniusAccountTip: 'Il tuo account Dify e i dati utente associati.',
+    langGeniusAccountTip: 'Il tuo account Mindverse e i dati utente associati.',
     editName: 'Modifica Nome',
     showAppLength: 'Mostra {{length}} app',
     delete: 'Elimina Account',
@@ -185,7 +185,7 @@ const translation = {
       'Per confermare, invia il seguente messaggio dalla tua email registrata a ',
     myAccount: 'Il mio account',
     account: 'Conto',
-    studio: 'Dify Studio',
+    studio: 'Mindverse Studio',
   },
   members: {
     team: 'Team',

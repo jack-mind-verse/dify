@@ -171,7 +171,7 @@ const translation = {
     delete: 'Xóa tài khoản',
     deleteTip: 'Xóa tài khoản của bạn sẽ xóa vĩnh viễn tất cả dữ liệu của bạn và không thể khôi phục được.',
     deleteConfirmTip: 'Để xác nhận, vui lòng gửi thông tin sau từ email đã đăng ký của bạn tới ',
-    studio: 'Dify Studio',
+    studio: 'Mindverse Studio',
     myAccount: 'Tài khoản của tôi',
     account: 'Tài khoản',
   },

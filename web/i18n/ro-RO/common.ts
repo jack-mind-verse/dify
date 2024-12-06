@@ -172,7 +172,7 @@ const translation = {
     deleteTip: 'Ștergerea contului vă va șterge definitiv toate datele și nu pot fi recuperate.',
     deleteConfirmTip: 'Pentru a confirma, trimiteți următoarele din e-mailul înregistrat la ',
     account: 'Cont',
-    studio: 'Dify Studio',
+    studio: 'Mindverse Studio',
     myAccount: 'Contul meu',
   },
   members: {
