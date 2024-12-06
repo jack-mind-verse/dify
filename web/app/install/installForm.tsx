@@ -12,6 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Loading from '../components/base/loading'
 import classNames from '@/utils/classnames'
 import Button from '@/app/components/base/button'
+import Toast from '../components/base/toast'
 
 import { fetchInitValidateStatus, fetchSetupStatus, setup } from '@/service/common'
 import type { InitValidateStatusResponse, SetupStatusResponse } from '@/models/common'
@@ -50,12 +51,16 @@ const InstallForm = () => {
   })
 
   const onSubmit: SubmitHandler<AccountFormValues> = async (data) => {
-    await setup({
-      body: {
-        ...data,
-      },
-    })
-    router.push('/signin')
+    try {
+      await setup({
+        body: {
+          ...data,
+        },
+      })
+      router.push('/signin')
+    } catch (error: any) {
+      Toast.notify({ type: 'error', message: error.message || t('common.error.unknown') })
+    }
   }
 
   const handleSetting = async () => {
@@ -63,19 +68,21 @@ const InstallForm = () => {
   }
 
   useEffect(() => {
-    fetchSetupStatus().then((res: SetupStatusResponse) => {
-      if (res.step === 'finished') {
-        localStorage.setItem('setup_status', 'finished')
-        window.location.href = '/signin'
+    const checkStatus = async () => {
+      try {
+        const initRes: InitValidateStatusResponse = await fetchInitValidateStatus()
+        if (initRes.status === 'not_started') {
+          window.location.href = '/init'
+          return
+        }
+        setLoading(false)
+      } catch (error) {
+        console.error('Status check failed:', error)
+        setLoading(false)
       }
-      else {
-        fetchInitValidateStatus().then((res: InitValidateStatusResponse) => {
-          if (res.status === 'not_started')
-            window.location.href = '/init'
-        })
-      }
-      setLoading(false)
-    })
+    }
+
+    checkStatus()
   }, [])
 
   return (
