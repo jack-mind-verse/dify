@@ -121,67 +121,82 @@ const InstallForm = () => {
         </div>
         <div className="grow mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white ">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className='mb-5'>
-                <label htmlFor="email" className="my-2 flex items-center justify-between text-sm font-medium text-gray-900">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   {t('login.email')}
                 </label>
                 <div className="mt-1">
                   <input
                     {...register('email')}
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                     placeholder={t('login.emailPlaceholder') || ''}
-                    className={'appearance-none block w-full rounded-lg pl-[14px] px-3 py-2 border border-gray-200 hover:border-gray-300 hover:shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 placeholder-gray-400 caret-primary-600 sm:text-sm'}
                   />
-                  {errors.email && <span className='text-red-400 text-sm'>{t(`${errors.email?.message}`)}</span>}
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {t(errors.email.message as string)}
+                    </p>
+                  )}
                 </div>
-              </div>
-
-              <div className='mb-5'>
-                <label htmlFor="name" className="my-2 flex items-center justify-between text-sm font-medium text-gray-900">
-                  {t('login.name')}
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    {...register('name')}
-                    placeholder={t('login.namePlaceholder') || ''}
-                    className={'appearance-none block w-full rounded-lg pl-[14px] px-3 py-2 border border-gray-200 hover:border-gray-300 hover:shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 placeholder-gray-400 caret-primary-600 sm:text-sm pr-10'}
-                  />
-                </div>
-                {errors.name && <span className='text-red-400 text-sm'>{t(`${errors.name.message}`)}</span>}
-              </div>
-
-              <div className='mb-5'>
-                <label htmlFor="password" className="my-2 flex items-center justify-between text-sm font-medium text-gray-900">
-                  {t('login.password')}
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <input
-                    {...register('password')}
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder={t('login.passwordPlaceholder') || ''}
-                    className={'appearance-none block w-full rounded-lg pl-[14px] px-3 py-2 border border-gray-200 hover:border-gray-300 hover:shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 placeholder-gray-400 caret-primary-600 sm:text-sm pr-10'}
-                  />
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500"
-                    >
-                      {showPassword ? '👀' : '😝'}
-                    </button>
-                  </div>
-                </div>
-                <div className={classNames('mt-1 text-xs text-gray-500', {
-                  'text-red-400 !text-sm': errors.password,
-                })}>{t('login.error.passwordInvalid')}</div>
               </div>
 
               <div>
-                <Button 
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  {t('login.name')}
+                </label>
+                <div className="mt-1">
+                  <input
+                    {...register('name')}
+                    type="text"
+                    autoComplete="name"
+                    required
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+                    placeholder={t('login.namePlaceholder') || ''}
+                  />
+                  {errors.name && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {t(errors.name.message as string)}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  {t('login.password')}
+                </label>
+                <div className="mt-1 relative">
+                  <input
+                    {...register('password')}
+                    type={showPassword ? 'text' : 'password'}
+                    autoComplete="new-password"
+                    required
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm pr-10"
+                    placeholder={t('login.passwordPlaceholder') || ''}
+                  />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-0 px-3 flex items-center"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? '👀' : '😝'}
+                  </button>
+                </div>
+                {errors.password && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {t(errors.password.message as string)}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <Button
                   type="submit"
-                  variant='primary' 
-                  className='w-full' 
-                  onClick={handleSetting}
+                  variant="primary"
+                  className="w-full flex justify-center py-2 px-4"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? t('common.loading') : t('login.installBtn')}
