@@ -81,12 +81,7 @@ const Operation = ({
       notify({ type: 'success', message: t('common.actionMsg.modifiedSuccessfully') })
     }
     catch (e) {
-      console.error('Failed to update role:', e)
-      notify({ 
-        type: 'error', 
-        message: t('common.actionMsg.modificationFailed'),
-        description: e.message || t('common.actionMsg.unknownError')
-      })
+
     }
   }
 
