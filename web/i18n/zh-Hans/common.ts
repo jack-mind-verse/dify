@@ -95,7 +95,7 @@ const translation = {
         '控制回复的随机性。\n值越大，回复越随机。\n值越小，回复越确定或一致。',
       top_p: '核采样 top_p',
       top_pTip:
-        '控制生成多样性。\n值越大，输出会包括更多的单词选项。\n值越小，模型会更集中在高概率的单词上，输出更确定但可能缺乏多样性。\n核采样和随机性不建议同时修改。',
+        '控制生成多��性。\n值越大，输出会包括更多的单词选项。\n值越小，模型会更集中在高概率的单词上，输出更确定但可能缺乏多样性。\n核采样和随机性不建议同时修改。',
       presence_penalty: '话题新鲜度 presence_penalty',
       presence_penaltyTip:
         '控制生成时对上文已存在的话题的偏好程度。\n值越大，越可能使用到新的话题。',
@@ -159,7 +159,7 @@ const translation = {
   account: {
     account: '账户',
     myAccount: '我的账户',
-    studio: 'Dify 工作室',
+    studio: 'Mindverse 工作室',
     avatar: '头像',
     name: '用户名',
     email: '邮箱',
@@ -264,7 +264,7 @@ const translation = {
       anthropicHosted: 'Anthropic Claude',
       onTrial: '体验',
       exhausted: '超出限额',
-      desc: '功能强大的模型，擅长执行从复杂对话和创意内容生成到详细指导的各种任务。',
+      desc: '功能强大的模型，擅长执行从复杂对话和创意内容生成到详细���导的各种任务。',
       callTimes: '调用次数',
       usedUp: '试用额度已用完，请在下方添加自己的模型供应商',
       useYourModel: '当前正在使用你自己的模型供应商。',
@@ -293,7 +293,7 @@ const translation = {
     },
     embeddingModel: {
       key: 'Embedding 模型',
-      tip: '设置知识库文档嵌入处理的默认模型，检索和导入知识库均使用该Embedding模型进行向量化处理，切换后将导致已导入的知识库与问题之间的向量维度不一致，从而导致检索失败。为避免检索失败，请勿随意切换该模型。',
+      tip: '设置知识库文档嵌入处理的默认模型，检索和导入知识库均使用该Embedding模型进行向量化处理，切换后将��致已导入的知识库与问题之间的向量维度不一致，从而导致检索失败。为避免检索失败，请勿随意切换该模型。',
       required: '请选择 Embedding 模型',
     },
     speechToTextModel: {
@@ -365,7 +365,7 @@ const translation = {
     loadPresets: '加载预设',
     parameters: '参数',
     loadBalancing: '负载均衡',
-    loadBalancingDescription: '为了减轻单组凭据的压力，您可以为模型调用配置多组凭据。',
+    loadBalancingDescription: '为了减轻单组凭据的���力，您可以为模型调用配置多组凭据。',
     loadBalancingHeadline: '负载均衡',
     configLoadBalancing: '设置负载均衡',
     modelHasBeenDeprecated: '该模型已废弃',

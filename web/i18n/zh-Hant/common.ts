@@ -104,7 +104,7 @@ const translation = {
       maxTokenSettingTip: '您設定的最大 tokens 數較大，可能會導致 prompt、使用者問題、知識庫內容沒有 token 空間進行處理，建議設定到 2/3 以下。',
       setToCurrentModelMaxTokenTip: '最大令牌數更新為當前模型最大的令牌數 {{maxToken}} 的 80%。',
       stop_sequences: '停止序列 stop_sequences',
-      stop_sequencesTip: '最多四個序列，API 將停止生成更多的 token。返回的文字將不包含停止序列。',
+      stop_sequencesTip: '最多四個序列，API 將��止生成更多的 token。返回的文字將不包含停止序列。',
       stop_sequencesPlaceholder: '輸入序列並按 Tab 鍵',
     },
     tone: {
@@ -173,7 +173,7 @@ const translation = {
     deleteConfirmTip: '請將以下內容從您的註冊電子郵件發送至 ',
     account: '帳戶',
     myAccount: '我的帳戶',
-    studio: 'Dify 工作室',
+    studio: 'Mindverse 工作室',
   },
   members: {
     team: '團隊',
@@ -249,7 +249,7 @@ const translation = {
     openaiHosted: {
       openaiHosted: '託管 OpenAI',
       onTrial: '體驗',
-      exhausted: '超出限額',
+      exhausted: '���出限額',
       desc: '託管 OpenAI 由 Dify 提供的託管 OpenAI 服務，你可以使用 GPT-3.5 等模型，在體驗額度消耗完畢前你需要設定其它模型供應商。',
       callTimes: '呼叫次數',
       usedUp: '試用額度已用完，請在下方新增自己的模型供應商',
@@ -305,7 +305,7 @@ const translation = {
       tip: '重排序模型將根據候選文件列表與使用者問題語義匹配度進行重新排序，從而改進語義排序的結果',
     },
     quota: '額度',
-    searchModel: '搜尋模型',
+    searchModel: '搜��模型',
     noModelFound: '找不到模型 {{model}}',
     models: '模型列表',
     showMoreModelProvider: '顯示更多模型提供商',
@@ -374,7 +374,7 @@ const translation = {
     apiKeyRateLimit: '已達到速率限制，在 {{seconds}} 秒後可用',
     providerManaged: '提供者管理',
     editConfig: '編輯配置',
-    loadBalancingInfo: '默認情況下，負載均衡使用 Round-robin 策略。如果觸發了速率限制，將應用 1 分鐘的冷卻時間。',
+    loadBalancingInfo: '默認情況下，負載均衡使用 Round-robin 策略。如果觸發了速率限制，將應用 1 ��鐘的冷卻時間。',
     loadBalancingLeastKeyWarning: '要啟用負載均衡，必須至少啟用 2 個金鑰。',
   },
   dataSource: {
@@ -417,7 +417,7 @@ const translation = {
     },
   },
   apiBasedExtension: {
-    title: 'API 擴充套件提供了一個集中式的 API 管理，在此統一新增 API 配置後，方便在 Dify 上的各類應用中直接使用。',
+    title: 'API 擴充套件提供了一個集中式�� API 管理，在此統一新增 API 配置後，方便在 Dify 上的各類應用中直接使用。',
     link: '瞭解如何開發您自己的 API 擴充套件。',
     linkUrl: 'https://docs.dify.ai/v/zh-hans/guides/extension/api-based-extension',
     add: '新增 API 擴充套件',
@@ -513,7 +513,7 @@ const translation = {
         desc: '插入上下文模板',
       },
       modal: {
-        title: '有 {{num}} 個知識庫在上下文中',
+        title: '有 {{num}} ��知識庫在上下文中',
         add: '新增上下文',
         footer: '您可以在下面的“上下文”部分中管理上下文。',
       },

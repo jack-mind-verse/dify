@@ -118,7 +118,7 @@ const translation = {
     plugins: '플러그인',
     pluginsTips: '타사 플러그인을 통합하거나 ChatGPT 호환 AI 플러그인을 작성합니다.',
     datasets: '지식',
-    datasetsTips: '곧 출시될 예정: 고유한 텍스트 데이터를 가져오거나 웹훅을 통해 실시간으로 데이터를 기록하여 LLM 컨텍스트를 강화합니다.',
+    datasetsTips: '곧 출시될 예정: 고유한 텍스트 데이터를 가져오거나 웹훅을 통해 실시간으로 데이터를 기록���여 LLM 컨텍스트를 강화합니다.',
     newApp: '새로운 앱',
     newDataset: '지식 만들기',
     tools: '도구',
@@ -159,7 +159,7 @@ const translation = {
     currentPassword: '현재 비밀번호',
     newPassword: '새 비밀번호',
     confirmPassword: '비밀번호 확인',
-    notEqual: '비밀번호가 일치하지 않습니다.',
+    notEqual: '비밀번호가 일치���지 않습니다.',
     langGeniusAccount: 'Dify 계정',
     langGeniusAccountTip: 'Dify 계정과 관련된 사용자 데이터.',
     editName: '이름 편집',
@@ -168,7 +168,7 @@ const translation = {
     deleteTip: '계정을 삭제하면 모든 데이터가 영구적으로 지워지며 복구할 수 없습니다.',
     deleteConfirmTip: '확인하려면 등록된 이메일에서 다음 내용을 로 보내주세요 ',
     myAccount: '내 계정',
-    studio: '디파이 스튜디오',
+    studio: '마인드버스 스튜디오',
     account: '계정',
   },
   members: {
@@ -236,7 +236,7 @@ const translation = {
     editKey: '편집',
     invalidApiKey: '유효하지 않은 API 키',
     azure: {
-      apiBase: 'API 베이스',
+      apiBase: 'API 베이��',
       apiBasePlaceholder: 'Azure OpenAI 엔드포인트의 API 베이스 URL.',
       apiKey: 'API 키',
       apiKeyPlaceholder: '여기에 API 키를 입력하세요',
@@ -308,7 +308,7 @@ const translation = {
     selector: {
       tip: '이 모델은 삭제되었습니다. 다른 모델을 추가하거나 다른 모델을 선택하세요.',
       emptyTip: '사용 가능한 모델이 없습니다',
-      emptySetting: '설정으로 이동하여 구성하세요',
+      emptySetting: '설정으로 이동���여 구성하세요',
       rerankTip: '재랭크 모델을 설정하세요',
     },
     card: {
@@ -401,7 +401,7 @@ const translation = {
       configuredCrawlers: '구성된 크롤러',
       with: '와',
       active: '활동적인',
-      description: '웹 크롤러를 사용하여 웹 사이트에서 콘텐츠를 가져옵니다.',
+      description: '웹 크롤러를 사용하여 웹 사이트에서 ���텐츠를 가져옵니다.',
     },
     configure: '구성',
   },
@@ -463,7 +463,7 @@ const translation = {
     chatApp: '채팅 앱',
   },
   datasetMenus: {
-    documents: '문서',
+    documents: '문���',
     hitTesting: '검색 테스트',
     settings: '설정',
     emptyTip: '연결된 지식이 없습니다. 애플리케이션 또는 플러그인으로 이동하여 연결을 완료하세요.',
@@ -543,7 +543,7 @@ const translation = {
     query: {
       item: {
         title: '쿼리',
-        desc: '사용자 쿼리 템플릿을 삽입합니다.',
+        desc: '사용자 쿼리 템플릿을 삽입합니��.',
       },
     },
     existed: '프롬프트에 이미 존재합니다',

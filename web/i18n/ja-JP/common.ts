@@ -39,7 +39,7 @@ const translation = {
     rename: '名前の変更',
     audioSourceUnavailable: 'AudioSource が利用できません',
     zoomIn: 'ズームインする',
-    openInNewTab: '新しいタブで開く',
+    openInNewTab: '新しい��ブで開く',
     zoomOut: 'ズームアウト',
     copyImage: '画像をコピー',
   },
@@ -112,7 +112,7 @@ const translation = {
       stop_sequencesPlaceholder: 'シーケンスを入力してタブキーを押してください',
     },
     tone: {
-      Creative: 'クリエイティブ',
+      Creative: 'クリエイティ��',
       Balanced: 'バランス',
       Precise: '正確',
       Custom: 'カスタム',
@@ -148,7 +148,7 @@ const translation = {
     workplaceGroup: 'ワークスペース',
     account: 'マイアカウント',
     members: 'メンバー',
-    billing: '請求',
+    billing: '��求',
     integrations: '統合',
     language: '言語',
     provider: 'モデルプロバイダー',
@@ -176,8 +176,8 @@ const translation = {
     deleteTip: 'アカウントを削除すると、すべてのデータが完全に消去され、復元できなくなります。',
     deleteConfirmTip: '確認のため、登録したメールから次の内容をに送信してください ',
     account: 'アカウント',
-    myAccount: 'マイアカウント',
-    studio: 'Difyスタジオ',
+    myAccount: 'マイアカウン���',
+    studio: 'Mindverseスタジオ',
   },
   members: {
     team: 'チーム',
@@ -263,7 +263,7 @@ const translation = {
     anthropicHosted: {
       anthropicHosted: 'アンソピッククロード',
       onTrial: 'トライアル中',
-      exhausted: 'クォータが使い果たされました',
+      exhausted: 'クォータが使��果たされました',
       desc: '高度なダイアログやクリエイティブなコンテンツ生成から詳細な指示まで、幅広いタスクに優れたパワフルなモデルです。',
       callTimes: '通話回数',
       usedUp: 'トライアルクォータが使い果たされました。独自のモデルプロバイダを追加してください。',
@@ -421,7 +421,7 @@ const translation = {
     },
   },
   apiBasedExtension: {
-    title: 'API拡張機能は、Difyのアプリケーション全体での簡単な使用のための設定を簡素化し、集中的なAPI管理を提供します。',
+    title: 'API拡張機能は、Dify���アプリケーション全体での簡単な使用のための設定を簡素化し、集中的なAPI管理を提供します。',
     link: '独自のAPI拡張機能を開発する方法について学ぶ。',
     linkUrl: 'https://docs.dify.ai/features/extension/api_based_extension',
     add: 'API拡張機能を追加',
@@ -475,7 +475,7 @@ const translation = {
     hitTesting: '検索テスト',
     settings: '設定',
     emptyTip: '関連付けられた知識がありません。アプリケーションやプラグインに移動して関連付けを完了してください。',
-    viewDoc: 'ドキュメントを表示',
+    viewDoc: 'ド��ュメントを表示',
     relatedApp: '関連アプリ',
   },
   voiceInput: {
@@ -583,7 +583,7 @@ const translation = {
   },
   fileUploader: {
     uploadFromComputer: 'ローカルアップロード',
-    pasteFileLink: 'ファイルリンクの貼り付け',
+    pasteFileLink: 'ファイルリンク���貼り付け',
     pasteFileLinkInputPlaceholder: 'URLを入力...',
     uploadFromComputerLimit: 'アップロードファイルは{{size}}を超えてはなりません',
     uploadFromComputerUploadError: 'ファイルのアップロードに失敗しました。再度アップロードしてください。',

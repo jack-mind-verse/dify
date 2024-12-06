@@ -105,7 +105,7 @@ const translation = {
       max_tokens: 'Maksimum token',
       max_tokensTip:
         'Yanıtın maksimum uzunluğunu token cinsinden sınırlar.\nDaha büyük değerler prompt kelimeleri, sohbet kayıtları ve Bilgiler için bırakılacak alanı sınırlayabilir. \nİki üçün altında ayarlanması önerilir\ngpt-4-1106-preview, gpt-4-vision-preview maksimum token (giriş 128k, çıkış 4k).',
-      maxTokenSettingTip: 'Maksimum token ayarınız yüksek, bu da promptlar, sorgular ve veriler için alanı sınırlayabilir. Bu değeri 2/3\'ün altında ayarlamayı düşünün.',
+      maxTokenSettingTip: 'Maksimum token ayarınız yüksek, bu da promptlar, sorgular ve veriler i��in alanı sınırlayabilir. Bu değeri 2/3\'ün altında ayarlamayı düşünün.',
       setToCurrentModelMaxTokenTip: 'Maksimum token, mevcut modelin maksimum token\'ın %80\'ine {maxToken} olarak güncellendi.',
       stop_sequences: 'Stop sıraları',
       stop_sequencesTip: 'API, dört adede kadar sıra belirleyerek daha fazla token üretmeyi durduracaktır. Dönülen metin durdurma sırasını içermez.',
@@ -177,7 +177,7 @@ const translation = {
     deleteConfirmTip: 'Onaylamak için, kayıtlı e-postanızdan şu adrese e-posta gönderin: ',
     account: 'Hesap',
     myAccount: 'Hesabım',
-    studio: 'Dify Stüdyo',
+    studio: 'Mindverse Stüdyo',
   },
   members: {
     team: 'Takım',
