@@ -443,9 +443,11 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
+    restart: unless-stopped
     volumes:
-      - /root/dify/certbot/conf:/etc/letsencrypt:ro
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
       - /root/dify/certbot/www:/var/www/html:ro
+      - /root/dify/certbot/conf:/etc/letsencrypt:ro
     entrypoint: ["/docker-entrypoint.sh"]
     environment:
       NGINX_SERVER_NAME: ${NGINX_SERVER_NAME:-_}
