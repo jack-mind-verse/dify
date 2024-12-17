@@ -439,11 +439,12 @@ services:
       - ./volumes/certbot/conf/live:/etc/letsencrypt/live
       - ./certbot/update-cert.template.txt:/update-cert.template.txt
       - ./certbot/docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./nginx/docker-entrypoint.sh:/docker-entrypoint.sh
     environment:
       - CERTBOT_EMAIL=${CERTBOT_EMAIL}
       - CERTBOT_DOMAIN=${CERTBOT_DOMAIN}
       - CERTBOT_OPTIONS=${CERTBOT_OPTIONS:-}
-    entrypoint: ['./certbot/docker-entrypoint.sh']
+    entrypoint: ['./nginx/docker-entrypoint.sh']
     command: ['tail', '-f', '/dev/null']
 
   # The nginx reverse proxy.
