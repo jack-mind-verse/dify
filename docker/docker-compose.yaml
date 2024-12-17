@@ -430,19 +430,19 @@ services:
   # use `docker-compose --profile certbot up` to start the certbot service.
   certbot:
     image: certbot/certbot:latest
+    container_name: certbot
     volumes:
       - /root/dify/certbot/conf:/etc/letsencrypt
       - /root/dify/certbot/www:/var/www/html
       - /root/dify/certbot/logs:/var/log/letsencrypt
-      - ./docker/certbot/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
-    entrypoint: ["sh", "/usr/local/bin/docker-entrypoint.sh"]
-    command: ["certonly", "--webroot", "--webroot-path=/var/www/html", "-d", "studio3.mind-verse.de", "--email", "your-email@example.com", "--agree-tos", "--no-eff-email"]
+    depends_on:
+      - nginx
 
   # The nginx reverse proxy.
   # used for reverse proxying the API service and Web service.
   nginx:
     image: nginx:latest
-    restart: always
+    container_name: nginx
     volumes:
       - /root/dify/certbot/conf:/etc/letsencrypt:ro
       - /root/dify/certbot/www:/var/www/html:ro
