@@ -444,7 +444,7 @@ services:
       - CERTBOT_EMAIL=${CERTBOT_EMAIL}
       - CERTBOT_DOMAIN=${CERTBOT_DOMAIN}
       - CERTBOT_OPTIONS=${CERTBOT_OPTIONS:-}
-    entrypoint: ['./nginx/docker-entrypoint.sh']
+    entrypoint: ["/usr/local/bin/docker-entrypoint.sh"]
     command: ['tail', '-f', '/dev/null']
 
   # The nginx reverse proxy.
