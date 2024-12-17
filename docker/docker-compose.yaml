@@ -443,7 +443,6 @@ services:
   nginx:
     image: nginx:latest
     restart: always
-    privileged: true
     volumes:
       - /root/dify/certbot/conf:/etc/letsencrypt:ro
       - /root/dify/certbot/www:/var/www/html:ro
