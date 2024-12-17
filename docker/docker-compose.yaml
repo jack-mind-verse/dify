@@ -444,7 +444,7 @@ services:
       - CERTBOT_EMAIL=${CERTBOT_EMAIL}
       - CERTBOT_DOMAIN=${CERTBOT_DOMAIN}
       - CERTBOT_OPTIONS=${CERTBOT_OPTIONS:-}
-    entrypoint: ['./docker/nginx/docker-entrypoint.sh']
+    entrypoint: ['./nginx/docker-entrypoint.sh']
     command: ['tail', '-f', '/dev/null']
 
   # The nginx reverse proxy.
@@ -458,7 +458,7 @@ services:
       - ./nginx/https.conf.template:/etc/nginx/https.conf.template
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/docker-entrypoint.sh:/docker-entrypoint-mount.sh
-      - ./docker/nginx/docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./nginx/docker-entrypoint.sh:/docker-entrypoint.sh
       - ./nginx/ssl:/etc/ssl # cert dir (legacy)
       - ./volumes/certbot/conf/live:/etc/letsencrypt/live # cert dir (with certbot container)
       - ./volumes/certbot/conf:/etc/letsencrypt
