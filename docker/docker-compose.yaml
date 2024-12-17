@@ -12,3 +12,15 @@ services:
       - "80:80"
       - "443:443"
     restart: unless-stopped
+
+    # Certbot service
+  # use `docker-compose --profile certbot up` to start the certbot service.
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    volumes:
+      - /root/dify/certbot/conf:/etc/letsencrypt
+      - /root/dify/certbot/www:/var/www/html
+      - /root/dify/certbot/logs:/var/log/letsencrypt
+    depends_on:
+      - nginx
