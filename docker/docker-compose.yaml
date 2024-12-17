@@ -446,12 +446,7 @@ services:
     volumes:
       - /root/dify/certbot/conf:/etc/letsencrypt:ro
       - /root/dify/certbot/www:/var/www/html:ro
-    entrypoint:
-      [
-        'sh',
-        '-c',
-        "cp /docker-entrypoint-mount.sh /docker-entrypoint.sh && sed -i 's/\r$$//' /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh && /docker-entrypoint.sh",
-      ]
+    entrypoint: ["/docker-entrypoint.sh"]
     environment:
       NGINX_SERVER_NAME: ${NGINX_SERVER_NAME:-_}
       NGINX_HTTPS_ENABLED: ${NGINX_HTTPS_ENABLED:-false}
